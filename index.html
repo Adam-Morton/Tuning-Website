@@ -1,220 +1,254 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
-		<title>Prayers Please</title>
-		<style>
-html, body, #canvas {
-	margin: 0;
-	padding: 0;
-	border: 0;
-}
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Adam Morton — Piano Tuning</title>
 
-body {
-	color: white;
-	background-color: black;
-	overflow: hidden;
-	touch-action: none;
-}
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-#canvas {
-	display: block;
-}
+  <!-- External CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo-box" aria-hidden="true">
+          <img src="logo.png" alt="Adam Morton Logo" style="width:100%;height:100%;object-fit:contain;">
+        </div>
+        <div>
+          <h1 class="site-name">Adam Morton</h1>
+          <p class="site-sub"><strong>Piano Tuner</strong> — <em>Durham Region</em></p>
+        </div>
+      </div>
+    </header>
 
-#canvas:focus {
-	outline: none;
-}
+    <main>
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <h2 id="hero-title">Your Piano, Perfectly Tuned</h2>
+        <p>Expert piano tuning and care for homes, studios, and schools — restoring clarity, evenness, and musical expression to every note.</p>
+        <a href="#contact" class="btn">Book a Tuning Today</a>
+      </div>
+    </section>
 
-#status, #status-splash, #status-progress {
-	position: absolute;
-	left: 0;
-	right: 0;
-}
+      <!-- SERVICES -->
+      <section class="section" id="services">
+        <h2>Tuning Services</h2>
+        <div class="packages">
+          <div class="card">
+            <h3>Prelude Tuning</h3>
+            <p class="price">$140</p>
+            <p class="subtitle">Ideal for pianos tuned within the past year</p>
+            <ul class="features">
+              <li>2-hour appointment</li>
+              <li>Precision tuning and thorough cleaning</li>
+              <li>Minor repairs and maintenance as time allows</li>
+            </ul>
+          </div>
 
-#status, #status-splash {
-	top: 0;
-	bottom: 0;
-}
+          <div class="card">
+            <h3>Encore Tuning</h3>
+            <p class="price">$180</p>
+            <p class="subtitle">Necessary for pianos that have not been tuned recently or are significantly out of pitch</p>
+            <ul class="features">
+              <li>2-hour appointment</li>
+              <li>Multiple tunings to keep piano in tune</li>
+              <li>Cleaning and light maintenance as time allows</li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
-#status {
-	background-color: #242424;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	visibility: hidden;
-}
+      <section class="featured-wrapper">
+        <div class="featured-card">
+          <span class="badge">Best Value</span>
+          <h3>Magnum Opus Package</h3>
+          <p class="price">$250</p>
+          <p class="subtitle"><em>Your piano’s annual care plan — precision and peace of mind.</em></p>
+          <ul class="features">
+            <li><strong>Two appointments</strong> for ongoing care over 12 months</li>
+            <li>Tuning and cleaning included each visit</li>
+            <li>20% off all add-on services</li>
+            <li>Priority booking and ongoing maintenance</li>
+          </ul>
+        </div>
+      </section>
 
-#status-splash {
-	max-height: 100%;
-	max-width: 100%;
-	margin: auto;
-}
+<!-- BOOKING FORM -->
+<section id="contact">
+	<h3 class="section-title">Contact & Booking</h3>
+	<p class="contact-text">
+		Email or call to arrange a tuning. Use the form below for a quick booking request.
+	</p>
 
-#status-splash.show-image--false {
-	display: none;
-}
+	<div>
+		<!-- Form -->
+		<form
+			class="info-card booking-form"
+			action="https://formsubmit.co/adam@adammortonmusic.com"
+			method="POST"
+		>
+			<input type="hidden" name="_captcha" value="false">
+			<input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
+						
+    		<h4 class="form-section-title">Contact Info</h4>
 
-#status-splash.fullsize--true {
-	height: 100%;
-	width: 100%;
-	object-fit: contain;
-}
+			<div class="form-field">
+				<label for="name">Name</label>
+				<input id="name" name="name" required placeholder="Your name" />
+			</div>
 
-#status-splash.use-filter--false {
-	image-rendering: pixelated;
-}
+			<div class="form-field">
+				<label for="contact">Email or Phone</label>
+				<input id="contact" name="contact" required placeholder="Email or phone number" />
+			</div>
+			
+			<div class="form-field">
+				<label for="msg">Additional Notes</label>
+				<textarea id="msg" rows="4" placeholder="Preferred days/times, piano info (upright/grand), address"></textarea>
+			</div>
 
-#status-progress, #status-notice {
-	display: none;
-}
 
-#status-progress {
-	bottom: 10%;
-	width: 50%;
-	margin: 0 auto;
-}
+			<!-- Hiding the rest of the form for now....
 
-#status-notice {
-	background-color: #5b3943;
-	border-radius: 0.5rem;
-	border: 1px solid #9b3943;
-	color: #e0e0e0;
-	font-family: 'Noto Sans', 'Droid Sans', Arial, sans-serif;
-	line-height: 1.3;
-	margin: 0 2rem;
-	overflow: hidden;
-	padding: 1rem;
-	text-align: center;
-	z-index: 1;
-}
-		</style>
-		<link id="-gd-engine-icon" rel="icon" type="image/png" href="Prayers Please.icon.png" />
-<link rel="apple-touch-icon" href="Prayers Please.apple-touch-icon.png"/>
+			<div class="form-field">
+				<label for="address">Address</label>
+				<input id="address" name="address" required placeholder="Street address, city" />
+			</div>
 
-	</head>
-	<body>
-		<canvas id="canvas">
-			Your browser does not support the canvas tag.
-		</canvas>
+			<h4 class="form-section-title">Piano Details</h4>
 
-		<noscript>
-			Your browser does not support JavaScript.
-		</noscript>
+			<div class="form-field">
+				<label for="piano-type">Type of Piano</label>
+				<select id="piano-type" name="piano-type" required>
+					<option value="">Select one...</option>
+					<option value="Upright">Upright</option>
+					<option value="Grand">Grand</option>
+					<option value="Digital">Digital / Hybrid</option>
+					<option value="Unsure">Not sure</option>
+				</select>
+			</div>
 
-		<div id="status">
-			<img id="status-splash" class="show-image--true fullsize--true use-filter--true" src="Prayers Please.png" alt="">
-			<progress id="status-progress"></progress>
-			<div id="status-notice"></div>
-		</div>
+			<div class="form-field">
+				<label for="brand">Brand / Model (if known)</label>
+				<input id="brand" name="brand" placeholder="e.g., Yamaha U1, Kawai KG-2" />
+			</div>
 
-		<script src="Prayers Please.js"></script>
-		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"ensureCrossOriginIsolationHeaders":true,"executable":"Prayers Please","experimentalVK":false,"fileSizes":{"Prayers Please.pck":9401792,"Prayers Please.wasm":52126319},"focusCanvas":true,"gdextensionLibs":[]};
-const GODOT_THREADS_ENABLED = false;
-const engine = new Engine(GODOT_CONFIG);
+			<div class="form-field">
+				<label for="last-tuned">When was it last tuned?</label>
+				<select id="last-tuned" name="last-tuned">
+					<option value="">Select...</option>
+					<option value="Less than a year ago">Less than 6 ago</option>
+					<option value="1–2 years ago">1–2 years ago</option>
+					<option value="Over 2 years ago">Over 2 years ago</option>
+					<option value="Unknown">Not sure</option>
+				</select>
+			</div>
 
-(function () {
-	const statusOverlay = document.getElementById('status');
-	const statusProgress = document.getElementById('status-progress');
-	const statusNotice = document.getElementById('status-notice');
+			<h4 class="form-section-title">Location & Access</h4>
 
-	let initializing = true;
-	let statusMode = '';
+			<div class="form-field">
+				<label for="environment">Environment</label>
+				<select id="environment" name="environment">
+					<option value="">Select...</option>
+					<option value="Private home">Private home</option>
+					<option value="School">School</option>
+					<option value="Studio">Studio</option>
+					<option value="Church">Church</option>
+					<option value="Other">Other</option>
+				</select>
+			</div>
 
-	function setStatusMode(mode) {
-		if (statusMode === mode || !initializing) {
-			return;
-		}
-		if (mode === 'hidden') {
-			statusOverlay.remove();
-			initializing = false;
-			return;
-		}
-		statusOverlay.style.visibility = 'visible';
-		statusProgress.style.display = mode === 'progress' ? 'block' : 'none';
-		statusNotice.style.display = mode === 'notice' ? 'block' : 'none';
-		statusMode = mode;
-	}
+			<div class="form-field">
+				<label for="access-notes">Access / Parking Notes</label>
+				<textarea id="access-notes" name="access-notes" rows="2" placeholder="e.g., street parking, stairs, gated entry, etc."></textarea>
+			</div>
 
-	function setStatusNotice(text) {
-		while (statusNotice.lastChild) {
-			statusNotice.removeChild(statusNotice.lastChild);
-		}
-		const lines = text.split('\n');
-		lines.forEach((line) => {
-			statusNotice.appendChild(document.createTextNode(line));
-			statusNotice.appendChild(document.createElement('br'));
-		});
-	}
+			<h4 class="form-section-title">Booking Preferences</h4>
+			
+			<div class="form-field">
+				<label for="availability">Preferred Days/Times</label>
+				<textarea id="availability" name="availability" rows="2" placeholder="e.g., Weekday mornings, Fridays after 3pm, weekends, etc."></textarea>
+			</div>
 
-	function displayFailureNotice(err) {
-		console.error(err);
-		if (err instanceof Error) {
-			setStatusNotice(err.message);
-		} else if (typeof err === 'string') {
-			setStatusNotice(err);
-		} else {
-			setStatusNotice('An unknown error occurred.');
-		}
-		setStatusMode('notice');
-		initializing = false;
-	}
+			<div class="form-field">
+				<label for="notes">Additional Notes</label>
+				<textarea id="notes" name="notes" rows="3" placeholder="Anything else you'd like to mention? (sticky keys, humidity issues, etc.)"></textarea>
+			</div>
+			
+			Hiding the rest of the form for now... -->
 
-	const missing = Engine.getMissingFeatures({
-		threads: GODOT_THREADS_ENABLED,
-	});
+			<div class="form-field">
+				<fieldset class="radio-group">
+					<legend>Select Tuning Type</legend>
+					<label>
+						<input type="radio" name="package" value="Prelude" required>
+						<div>
+							<span>Prelude Tuning</span>
+							<small class="option-subtitle">$140</small>
+						</div>
+					</label>
+					<label>
+						<input type="radio" name="package" value="Encore">
+						<div>
+							<span>Encore Tuning</span>
+							<small class="option-subtitle">$180</small>
+						</div>
+					</label>
+					<label>
+						<input type="radio" name="package" value="Magnum Opus">
+						<div>
+							<span>Magnum Opus Package</span>
+							<small class="option-subtitle">$250</small>
+						</div>
+					</label>
+				</fieldset>
+			</div>
 
-	if (missing.length !== 0) {
-		if (GODOT_CONFIG['serviceWorker'] && GODOT_CONFIG['ensureCrossOriginIsolationHeaders'] && 'serviceWorker' in navigator) {
-			let serviceWorkerRegistrationPromise;
-			try {
-				serviceWorkerRegistrationPromise = navigator.serviceWorker.getRegistration();
-			} catch (err) {
-				serviceWorkerRegistrationPromise = Promise.reject(new Error('Service worker registration failed.'));
-			}
-			// There's a chance that installing the service worker would fix the issue
-			Promise.race([
-				serviceWorkerRegistrationPromise.then((registration) => {
-					if (registration != null) {
-						return Promise.reject(new Error('Service worker already exists.'));
-					}
-					return registration;
-				}).then(() => engine.installServiceWorker()),
-				// For some reason, `getRegistration()` can stall
-				new Promise((resolve) => {
-					setTimeout(() => resolve(), 2000);
-				}),
-			]).then(() => {
-				// Reload if there was no error.
-				window.location.reload();
-			}).catch((err) => {
-				console.error('Error while registering service worker:', err);
-			});
-		} else {
-			// Display the message as usual
-			const missingMsg = 'Error\nThe following features required to run Godot projects on the Web are missing:\n';
-			displayFailureNotice(missingMsg + missing.join('\n'));
-		}
-	} else {
-		setStatusMode('progress');
-		engine.startGame({
-			'onProgress': function (current, total) {
-				if (current > 0 && total > 0) {
-					statusProgress.value = current;
-					statusProgress.max = total;
-				} else {
-					statusProgress.removeAttribute('value');
-					statusProgress.removeAttribute('max');
-				}
-			},
-		}).then(() => {
-			setStatusMode('hidden');
-		}, displayFailureNotice);
-	}
-}());
-		</script>
-	</body>
+			<button class="btn" type="submit">Send Booking Request</button>
+		</form>
+	</div>
+</section>
+      <!-- ABOUT -->
+      <section id="about" class="about-contact">
+        <div>
+          <div>
+            <h3 class="section-title">About</h3>
+            <p class="about-text">I'm a professional piano tuner with years of experience tuning for homes, schools, and recording sessions. I combine careful aural technique with modern tools to deliver accurate, musical tunings that help your instrument sound its best.</p>
+          </div>
+
+
+        </div>
+      </section>
+
+      <!-- TESTIMONIALS -->
+      <section id="testimonials">
+        <h3 class="section-title">Testimonials</h3>
+
+        <div class="test-grid">
+          <div class="testimonial">“Adam arrived on time and gave our piano a fantastic tuning — the tone is so much clearer now.” <div class="testimonial-author">— Local teacher</div></div>
+
+          <div class="testimonial">“Great communication and efficient work. Perfect for sessions.” <div class="testimonial-author">— Recording client</div></div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div class="footer-note">© <span id="yr"></span> Adam Morton — Piano Tuning</div>
+      <div class="footer-contact">
+        <div>Email: <a href="mailto:adam@adammortonmusic.com">adam@adammortonmusic.com</a></div>
+        <div>Phone: <a href="tel:+16474472858">(647) 447-2858</a></div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
-
