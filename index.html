@@ -30,7 +30,7 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-content">
         <h2 id="hero-title">Your Piano, Perfectly Tuned</h2>
-        <p>Expert piano tuning and care for homes, studios, and schools — restoring clarity, evenness, and musical expression to every note.</p>
+        <p>Expert piano tuning and care for homes, churches, and schools — restoring clarity, evenness, and musical expression to every note.</p>
         <a href="#contact" class="btn">Book a Tuning Today</a>
       </div>
     </section>
@@ -217,25 +217,21 @@
       <section id="about" class="about-contact">
         <div>
           <div>
-            <h3 class="section-title">About</h3>
-            <p class="about-text">I'm a professional piano tuner with years of experience tuning for homes, schools, and recording sessions. I combine careful aural technique with modern tools to deliver accurate, musical tunings that help your instrument sound its best.</p>
+            <h3 class="section-title">About Me</h3>
+            <p class="about-text">I'm a professional piano tuner for homes, schools, churches - anyone with a piano! I combine careful aural technique with modern tools to deliver accurate, reliable tunings that help your piano sound its best.</p>
           </div>
 
 
         </div>
       </section>
 
-      <!-- TESTIMONIALS -->
-      <section id="testimonials">
-        <h3 class="section-title">Testimonials</h3>
-
-        <div class="test-grid">
-          <div class="testimonial">“Adam arrived on time and gave our piano a fantastic tuning — the tone is so much clearer now.” <div class="testimonial-author">— Local teacher</div></div>
-
-          <div class="testimonial">“Great communication and efficient work. Perfect for sessions.” <div class="testimonial-author">— Recording client</div></div>
-        </div>
-      </section>
-
+		<!-- TESTIMONIALS
+		<section id="testimonials">
+		  <h3 class="section-title">Testimonials</h3>
+		  <div class="test-grid" id="testimonials-container">
+		  </div>
+		</section>
+		-->
     </main>
 
     <footer>
@@ -247,8 +243,33 @@
     </footer>
   </div>
 
-  <script>
-    document.getElementById('yr').textContent = new Date().getFullYear();
-  </script>
+	<script>
+		document.getElementById('yr').textContent = new Date().getFullYear();
+	
+		async function loadTestimonials() {
+		try {
+		  const response = await fetch('testimonials.json');
+		  const testimonials = await response.json();
+
+		  const container = document.getElementById('testimonials-container');
+		  container.innerHTML = ''; // Clear any existing content
+
+		  testimonials.forEach(t => {
+			const testimonialDiv = document.createElement('div');
+			testimonialDiv.classList.add('testimonial');
+			testimonialDiv.innerHTML = `
+			  ${t.testimonial} 
+			  <div class="testimonial-author">— ${t.author}</div>
+			`;
+			container.appendChild(testimonialDiv);
+		  });
+
+		} catch (error) {
+		  console.error('Error loading testimonials:', error);
+		}
+	  }
+
+	  loadTestimonials();
+	</script>
 </body>
 </html>
