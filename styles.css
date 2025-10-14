@@ -217,8 +217,8 @@ nav { display: flex; gap: var(--spacing-sm); align-items: center; }
 	font-weight: 600;
 	margin-bottom: 10px;
 }
-.price { font-size: 1.4rem; font-weight: 700; margin-bottom: 15px; }
-.subtitle { font-style: italic; font-size: 0.95rem; margin-bottom: 15px; color: #555; }
+.price { font-size: 1.4rem; font-weight: 700; margin-bottom: 1px; }
+.subtitle { font-style: italic; font-size: 0.8rem; margin-bottom: 1px; color: #555; }
 .features li { padding: 8px 0; border-bottom: 1px solid #eee; }
 .features li:last-child { border-bottom: none; }
 
