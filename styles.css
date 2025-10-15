@@ -502,3 +502,21 @@ footer {
 	color: var(--primary-color);
 	animation: text-gold-glow 6s ease-in-out infinite;
 }
+
+.cta-container {
+	text-align: center;
+	margin-top: 2rem;
+}
+
+.cta-button {
+	background: linear-gradient(135deg, #b1975b, #d8c27d);
+	color: #fff;
+	padding: 12px 20px;
+	animation: glow-animation 3s ease-in-out infinite;
+	border-radius: 8px;
+}
+
+.cta-button:hover {
+	background-color: var(--primary-dark);
+	transform: translateY(-2px);
+}
