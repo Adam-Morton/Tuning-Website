@@ -62,13 +62,31 @@ ul { list-style: none; margin: 0; padding: 0; }
    HEADER
 ========================================================== */
 header {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: var(--spacing-sm) 0;
-	border-bottom: 1px solid rgba(0,0,0,0.06);
-	gap: var(--spacing-sm);
+  position: sticky;
+  top: 28px;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.5);
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 12px;
+  margin: 0 auto;
+  width: 95%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  overflow: hidden; /* Needed for pseudo-elements */
 }
+
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-blend-mode: lighten;
+  z-index: 2;
+}
+
 .brand { display: flex; align-items: center; gap: var(--spacing-sm); }
 
 .logo-box {
@@ -116,25 +134,46 @@ nav { display: flex; gap: var(--spacing-sm); align-items: center; }
 	align-items: center;
 	text-align: center;
 	padding: 80px 20px;
-	border-radius: 18px;
 	margin-top: var(--spacing-lg);
 	position: relative;
+	border-radius: 0; /* ensure image corners are square */
+	overflow: visible;
+
+	background: url("piano.jpg") bottom/cover no-repeat;
+	color: #fff;
 }
-.hero::before,
+
+/* white overlay */
+.hero::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: rgba(255, 255, 255, 0.85);
+	z-index: 0;
+	border-radius: 0; /* make sure overlay doesn’t clip image */
+}
+
+/* top + bottom glowing gold bars */
 .hero::after {
 	content: "";
 	position: absolute;
 	left: 0;
 	width: 100%;
-	height: 4px;
-	background: linear-gradient(90deg, #b1975b, #d8c27d, #b1975b);
-	border-radius: 2px;
+	height: 100%;
+	border: 4px solid;
+  border-image: linear-gradient(135deg, #b1975b, #d8c27d) 1;
+  border-radius: 16px;
+	z-index: 1;
+	pointer-events: none;
 	animation: glow-animation 3s ease-in-out infinite;
 }
-.hero::before { top: 0; }
-.hero::after { bottom: 0; }
 
-.hero-content { max-width: 700px; }
+.hero-content {
+	position: relative;
+	z-index: 2; /* keeps text above overlay and lines */
+	max-width: 700px;
+}
+
 .hero h2 {
 	font-family: 'Rajdhani', sans-serif;
 	font-size: 36px;
@@ -142,11 +181,22 @@ nav { display: flex; gap: var(--spacing-sm); align-items: center; }
 	margin-bottom: 16px;
 	color: var(--primary-dark);
 }
+
 .hero p {
 	font-size: 16px;
 	color: var(--subtext-color);
 	margin-bottom: 24px;
 	line-height: 1.5;
+}
+
+/* optional glow animation */
+@keyframes glow-animation {
+	0%, 100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.6;
+	}
 }
 
 /* ==========================================================
@@ -179,6 +229,13 @@ nav { display: flex; gap: var(--spacing-sm); align-items: center; }
 	animation: glow-animation 3s ease-in-out infinite;
 }
 
+.header .btn {
+	background: linear-gradient(135deg, #b1975b, #d8c27d);
+	color: #fff;
+	padding: 6px 10px;
+	animation: glow-animation 3s ease-in-out infinite;
+}
+
 /* ==========================================================
    INFO CARD
 ========================================================== */
@@ -199,6 +256,10 @@ nav { display: flex; gap: var(--spacing-sm); align-items: center; }
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 	gap: 30px;
+}
+
+h2 {
+	text-align: center;
 }
 .card {
 	border: 1px solid #e2e2e2;
@@ -250,6 +311,19 @@ nav { display: flex; gap: var(--spacing-sm); align-items: center; }
 	box-shadow: 0 0 40px rgba(184, 137, 53, 0.45); /* slightly stronger on hover */
 }
 
+.featured-card h3 {
+  margin-top: 4px;     
+  margin-bottom: 4px;  
+  font-size: 36px;     
+}
+.featured-card .price {
+  margin: 4px 0;
+  font-size: 28px;
+}
+.featured-card .subtitle {
+  margin: 4px 0 12px 0; 
+}
+
 @keyframes gold-glow {
 	0%, 100% {
 		box-shadow: 0 0 12px rgba(184, 137, 53, 0.3);
@@ -299,6 +373,41 @@ nav { display: flex; gap: var(--spacing-sm); align-items: center; }
 }
 .testimonial-author { margin-top: 8px; font-weight: 600; color: #222; }
 
+.about-wrapper {
+  display: flex;
+  align-items: center;   /* Align photo and text at top */
+  gap: 24px;                 /* Space between photo and text */
+  flex-wrap: wrap;           /* Allows stacking on smaller screens */
+}
+
+.about-photo img {
+  width: 250px;              /* Adjust size as needed */
+  height: auto;
+  border-radius: 12px;       /* Optional rounded corners */
+  object-fit: cover;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+	border: 4px solid var(--primary-color);
+
+}
+
+.about-texts {
+  flex: 1;                   /* Text takes remaining space */
+}
+
+@media (max-width: 800px) {
+  .about-wrapper {
+    flex-direction: column;  /* Stack photo above text on small screens */
+    align-items: center;
+    text-align: left;
+  }
+
+  .about-photo img {
+    width: 180px;
+    margin-bottom: 0px;
+  }
+}
+
+
 /* ==========================================================
    TWO COLUMN LAYOUT
 ========================================================== */
@@ -338,13 +447,45 @@ footer {
 /* ==========================================================
    RESPONSIVE HEADER
 ========================================================== */
-@media (max-width: 760px) {
-	header { flex-direction: column; align-items: flex-start; }
-	nav { flex-wrap: wrap; gap: 10px; width: 100%; }
-	.hero { padding: 60px 16px; }
-	.hero h2 { font-size: 28px; }
-	.hero p { font-size: 14px; }
+/* Small screens: hide text and nav, center logo + button */
+@media (max-width: 500px) {
+	.site-name,
+	.site-sub,
+	nav {
+		display: none;
+	}
+
+	header {
+		display: flex;
+		justify-content: center;  /* Center the brand container itself */
+		align-items: center;
+		padding: 10px 20px;
+	}
+
+	.brand {
+		display: flex;
+		align-items: center;
+		justify-content: center;  /* Center logo & button inside */
+		gap: 12px;                /* Space between logo & button */
+		margin: 0;                /* Remove extra margin */
+		padding: 0;
+		flex-wrap: nowrap;         /* Prevent wrapping */
+	}
+
+	.brand .btn {
+		white-space: nowrap;       /* Prevent text from wrapping */
+		padding: 6px 12px;
+		font-size: 13px;
+		margin: 0;
+	}
+
+	.logo-box {
+		width: 60px;
+		height: 60px;
+		margin: 0;
+	}
 }
+
 
 /* ==========================================================
    BOOKING FORM
@@ -468,14 +609,14 @@ footer {
 	background: linear-gradient(to right, var(--primary-color), rgba(209,177,90,0.2));
 	border-radius: 1px;
 }
-.booking-form .form-section-title:first-of-type { margin-top: 16px; }
+.booking-form .form-section-title:first-of-type { margin-top: 0px; }
 
 /* ==========================================================
    ANIMATIONS
 ========================================================== */
 @keyframes glow-animation {
 	0%, 100% { box-shadow: 0 0 6px rgba(209,177,90,0.4); }
-	50% { box-shadow: 0 0 12px rgba(209,177,90,0.7); }
+	50% { box-shadow: 0 0 12px rgba(209,177,90,0.9); }
 }
 @keyframes text-gold-glow {
 	0%, 100% {
@@ -486,7 +627,7 @@ footer {
 	}
 	50% {
 		text-shadow:
-			0 0 10px rgba(209,177,90,0.8),
+			0 0 10px rgba(209,177,90,0.9),
 			0 0 20px rgba(209,177,90,0.6),
 			0 0 30px rgba(209,177,90,0.4);
 	}
@@ -497,6 +638,7 @@ footer {
 .section-title,
 .card h3,
 .featured-card h3,
+.featured-card price
 .logo-box,
 .booking-form legend {
 	color: var(--primary-color);

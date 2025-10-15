@@ -15,17 +15,20 @@
 </head>
 <body>
   <div class="container">
-    <header>
-      <div class="brand">
-        <div class="logo-box" aria-hidden="true">
-          <img src="logo.png" alt="Adam Morton Piano Tuning Logo" style="width:100%;height:100%;object-fit:contain;" >
-        </div>
-        <div>
-          <h1 class="site-name">Adam Morton — Professional Piano Tuning in Durham</h1>
-          <p class="site-sub"><em>Tunings, Repairs, and Maintenance</em></p>
-        </div>
-      </div>
-    </header>
+	<header class="header">
+	  <div class="brand">
+		<div class="logo-box" aria-hidden="true">
+		  <img src="logo.png" alt="Adam Morton Piano Tuning Logo" style="width:100%;height:100%;object-fit:contain;">
+		</div>
+		<div>
+		  <h1 class="site-name">Adam Morton</h1>
+		  <p class="site-sub"><em>Professional Piano Tuning in Durham</em></p>
+		</div>
+	  </div>
+
+	  <a href="#contact" class="btn header-btn">Book a Tuning Today</a>
+	</header>
+
 
     <main>
     <!-- HERO -->
@@ -33,13 +36,11 @@
       <div class="hero-content">
         <h2 id="hero-title">Your Piano, Perfectly Tuned</h2>
         <p>Expert piano tuning and care for homes, churches, and schools — restoring clarity, evenness, and musical expression to every note.</p>
-        <a href="#contact" class="btn">Book a Tuning Today</a>
       </div>
     </section>
       
       <!-- SERVICES -->
       <section class="section" id="services">
-        <h2>Tuning Services</h2>
         <div class="packages">
           <div class="card">
             <h3>Prelude Tuning</h3>
@@ -80,87 +81,16 @@
         </div>
       </section>
       
-      <!-- BOOK TODAY CTA -->
+  <!-- BOOK TODAY CTA -->
+  <section id="contact" style="scroll-margin-top: 150px;">
       <section class="section cta-section">
         <div class="cta-content" style="text-align:center; margin: 2rem 0;">
           <h3>Ready to Schedule Your Tuning?</h3>
-          <p>Bring out the best in your piano — reliable service for homes, schools, and churches.</p>
-
-	<a href="#contact" class="btn">Book Today</a>
-        </div>
-      </section>
-
-      <!-- ADD-ON SERVICES -->
-
-      <section class="section" id="addons">
-        <h2>Add-On Services</h2>
-        <p class="section-intro">Enhance your piano’s performance and longevity with these optional services.</p>
-
-        <div class="packages">
-          <div class="card">
-            <h3>Voicing</h3>
-            <p class="price">$120–$250</p>
-            <p class="subtitle">Tone balancing</p>
-            <ul class="features">
-              <li>Improves clarity and evenness across notes</li>
-              <li>Adjusts hammer felt for brighter or mellower sound</li>
-              <li>1.5–3 hour appointment</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3>Regulation</h3>
-            <p class="price">$250–$450</p>
-            <p class="subtitle">Touch and response</p>
-            <ul class="features">
-              <li>Restores consistent key travel and action feel</li>
-              <li>Optimizes hammer alignment and repetition</li>
-              <li>3–6 hour appointment</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3>Lubrication</h3>
-            <p class="price">$60–$120</p>
-            <p class="subtitle">Smooth and quiet performance</p>
-            <ul class="features">
-              <li>Eliminates squeaks and sluggish motion</li>
-              <li>Lubricates and tightens moving parts</li>
-              <li>45–90 minute appointment</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3>Deep Cleaning</h3>
-            <p class="price">$75–$150</p>
-            <p class="subtitle">Interior service</p>
-            <ul class="features">
-              <li>Vacuum and clean under keys and inside the piano</li>
-              <li>Removes dust, debris, and buildup</li>
-              <li>1–2 hour appointment</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3>Repairs</h3>
-            <p class="price">$25–$150</p>
-            <p class="subtitle">Parts and string replacement</p>
-            <ul class="features">
-              <li>Fix broken strings, sticky keys, or minor parts</li>
-              <li>Can be combined with tuning visits</li>
-              <li>15–60 minute repair time</li>
-            </ul>
-          </div>
+          <p>Bring out the best in your piano — fill out the form and let's get connected!</p>
         </div>
       </section>
 
 <!-- BOOKING FORM -->
-<section id="contact">
-	<h3 class="section-title">Contact & Booking</h3>
-	<p class="contact-text">
-		Email or call to arrange a tuning. Use the form below for a quick booking request.
-	</p>
-
 	<div>
 		<!-- Form -->
 		<form
@@ -187,76 +117,6 @@
 				<label for="msg">Additional Notes</label>
 				<textarea id="msg" rows="4" placeholder="Preferred days/times, piano info (upright/grand), address"></textarea>
 			</div>
-
-
-			<!-- Hiding the rest of the form for now....
-
-			<div class="form-field">
-				<label for="address">Address</label>
-				<input id="address" name="address" required placeholder="Street address, city" />
-			</div>
-
-			<h4 class="form-section-title">Piano Details</h4>
-
-			<div class="form-field">
-				<label for="piano-type">Type of Piano</label>
-				<select id="piano-type" name="piano-type" required>
-					<option value="">Select one...</option>
-					<option value="Upright">Upright</option>
-					<option value="Grand">Grand</option>
-					<option value="Digital">Digital / Hybrid</option>
-					<option value="Unsure">Not sure</option>
-				</select>
-			</div>
-
-			<div class="form-field">
-				<label for="brand">Brand / Model (if known)</label>
-				<input id="brand" name="brand" placeholder="e.g., Yamaha U1, Kawai KG-2" />
-			</div>
-
-			<div class="form-field">
-				<label for="last-tuned">When was it last tuned?</label>
-				<select id="last-tuned" name="last-tuned">
-					<option value="">Select...</option>
-					<option value="Less than a year ago">Less than 6 ago</option>
-					<option value="1–2 years ago">1–2 years ago</option>
-					<option value="Over 2 years ago">Over 2 years ago</option>
-					<option value="Unknown">Not sure</option>
-				</select>
-			</div>
-
-			<h4 class="form-section-title">Location & Access</h4>
-
-			<div class="form-field">
-				<label for="environment">Environment</label>
-				<select id="environment" name="environment">
-					<option value="">Select...</option>
-					<option value="Private home">Private home</option>
-					<option value="School">School</option>
-					<option value="Studio">Studio</option>
-					<option value="Church">Church</option>
-					<option value="Other">Other</option>
-				</select>
-			</div>
-
-			<div class="form-field">
-				<label for="access-notes">Access / Parking Notes</label>
-				<textarea id="access-notes" name="access-notes" rows="2" placeholder="e.g., street parking, stairs, gated entry, etc."></textarea>
-			</div>
-
-			<h4 class="form-section-title">Booking Preferences</h4>
-			
-			<div class="form-field">
-				<label for="availability">Preferred Days/Times</label>
-				<textarea id="availability" name="availability" rows="2" placeholder="e.g., Weekday mornings, Fridays after 3pm, weekends, etc."></textarea>
-			</div>
-
-			<div class="form-field">
-				<label for="notes">Additional Notes</label>
-				<textarea id="notes" name="notes" rows="3" placeholder="Anything else you'd like to mention? (sticky keys, humidity issues, etc.)"></textarea>
-			</div>
-			
-			Hiding the rest of the form for now... -->
 
 			<div class="form-field">
 				<fieldset class="radio-group">
@@ -289,25 +149,29 @@
 		</form>
 	</div>
 </section>
-      <!-- ABOUT -->
-      <section id="about" class="about-contact">
-        <div>
-          <div>
-            <h3 class="section-title">About Me</h3>
-            <p class="about-text">I'm a professional piano tuner for homes, schools, churches - anyone with a piano! I combine careful aural technique with modern tools to deliver accurate, reliable tunings that help your piano sound its best.</p>
-          </div>
+     <!-- ABOUT -->
+		<section id="about" class="about-contact">
+		  <!-- Section Header -->
+		  <h3 class="section-title" style="text-align: center; font-size: 24px;">About Me</h3>
 
+		  <div class="about-wrapper">
+			<!-- Photo Column -->
+			<div class="about-photo">
+			  <img src="headshot.jpg" alt="Adam Morton" />
+			</div>
 
-        </div>
-      </section>
+			<!-- Text Column -->
+			<div class="about-texts">
+			  <p class="about-text">Hi, I’m Adam Morton, a professional piano tuner and technician based in Durham, Ontario. I’ve spent years helping pianos of all shapes and sizes sound their absolute best, whether for home musicians, schools, or performance venues. I take pride in combining precision, care, and a deep love of music in every tuning, repair, and maintenance session. From regulating action to voicing hammers, I ensure your piano responds beautifully and consistently.</p>
 
-		<!-- TESTIMONIALS
-		<section id="testimonials">
-		  <h3 class="section-title">Testimonials</h3>
-		  <div class="test-grid" id="testimonials-container">
+			  <p class="about-text">In addition to tuning, I teach piano to students of all ages, helping them build strong fundamentals, develop musicality, and enjoy playing. Whether it’s a beginner learning their first notes or a young performer preparing for a recital, I provide lessons that are engaging, structured, and tailored to each student.</p>
+
+			  <p class="about-text">My goal is simple: to help your piano—and your playing—reach its fullest potential. I treat each instrument and student with the attention they deserve, so you can enjoy music with confidence and joy.</p>
+			</div>
 		  </div>
 		</section>
-		-->
+
+
     </main>
 
     <footer>
