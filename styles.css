@@ -381,7 +381,7 @@ h2 {
 }
 
 .about-photo img {
-  width: 250px;              /* Adjust size as needed */
+  width: 300px;              /* Adjust size as needed */
   height: auto;
   border-radius: 12px;       /* Optional rounded corners */
   object-fit: cover;
