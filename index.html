@@ -6,19 +6,6 @@
 	<title>Adam Morton — Piano Tuning in Durham, Ontario</title>
 	<link rel="icon" href="favicon.png" type="image/png">
 	<meta name="description" content="Professional piano tuning, repair, and maintenance in Durham, Ontario. Reliable service for homes, schools, and churches in Ajax, Whitby, Oshawa, Courtice, Bownmanville and the greater Durham Region. Book your appointment today.">
-	
-    	<!-- Social Sharing / Preview Image -->
-        <meta property="og:title" content="Adam Morton — Piano Tuning in Durham, Ontario">
-        <meta property="og:description" content="Professional piano tuning, repair, and maintenance throughout Durham Region. Reliable, friendly, and precise service for your home, school, or church.">
-        <meta property="og:image" content="https://tuning.adammortonmusic.com/logo.png">
-        <meta property="og:url" content="https://tuning.adammortonmusic.com/">
-        <meta property="og:type" content="website">
-        
-        <!-- Twitter Card (for X / Twitter previews) -->
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="Adam Morton — Piano Tuning in Durham, Ontario">
-        <meta name="twitter:description" content="Professional piano tuning, repair, and maintenance in Durham Region.">
-        <meta name="twitter:image" content="https://tuning.adammortonmusic.com/logo.png">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -185,63 +172,7 @@
 			</div>
 		  </div>
 		</section>
-		
-<!-- ================================
-     FAQ SECTION
-================================ -->
-		<section id="faq" class="section container">
-			<h2 class="section-title">Frequently Asked Questions</h2>
 
-			<div class="faq-list">
-
-				<div class="faq-item">
-					<button class="faq-question">How often should my piano be tuned?</button>
-					<div class="faq-answer">
-						<p>Most pianos should be tuned every 6–12 months, depending on humidity changes and how frequently it’s played. Regular tuning keeps your piano stable and sounding its best.</p>
-					</div>
-				</div>
-
-				<div class="faq-item">
-					<button class="faq-question">Do you offer pitch raises?</button>
-					<div class="faq-answer">
-						<p>Yes! If your piano hasn’t been tuned in several years, it may need a pitch raise before a fine tuning. This ensures proper string tension and stability.</p>
-					</div>
-				</div>
-
-				<div class="faq-item">
-					<button class="faq-question">What areas do you service?</button>
-					<div class="faq-answer">
-						<p>I tune and service pianos throughout Durham Region and surrounding Ontario communities. Feel free to contact me to confirm if I travel to your area.</p>
-					</div>
-				</div>
-
-				<div class="faq-item">
-					<button class="faq-question">How long does a tuning take?</button>
-					<div class="faq-answer">
-						<p>A standard tuning usually takes about 1.5 to 2 hours. If additional repairs or adjustments are needed, I’ll let you know before starting.</p>
-					</div>
-				</div>
-
-				<div class="faq-item">
-					<button class="faq-question">Should I do anything to prepare for a tuning?</button>
-					<div class="faq-answer">
-						<p>Please remove items from the piano lid and clear some space around the instrument. I’ll handle the rest — no need to move or open anything beforehand.</p>
-					</div>
-				</div>
-
-				<div class="faq-item">
-					<button class="faq-question">What forms of payment do you accept?</button>
-					<div class="faq-answer">
-						<p>I accept cash, e-transfer, and most major credit cards. Payment is due upon completion of the service.</p>
-					</div>
-				</div>
-
-			</div>
-
-			<div class="cta-container">
-				<a href="#contact" class="cta-button">Book a Tuning</a>
-			</div>
-		</section>
 
     </main>
 
@@ -279,19 +210,6 @@
 	  }
 
 	  loadTestimonials();
-	 
-	document.querySelectorAll('.faq-question').forEach((button) => {
-			button.addEventListener('click', () => {
-				const faqItem = button.parentElement;
-				const isActive = faqItem.classList.contains('active');
-
-				// Close all others
-				document.querySelectorAll('.faq-item').forEach((item) => item.classList.remove('active'));
-
-				// Toggle this one
-				if (!isActive) faqItem.classList.add('active');
-			});
-		});
 	</script>
 </body>
 </html>
