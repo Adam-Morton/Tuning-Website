@@ -396,24 +396,106 @@ h2 {
 }
 
 /* Responsive layout: stack image above text on small screens */
-@media (max-width: 650px) {
+@media (max-width: 725px) {
   .about-photo img {
     width: 180px;
   }
 }
 
 /* ==========================================================
-   TWO COLUMN LAYOUT
+   FAQ SECTION
 ========================================================== */
-.two-col {
+.faq-grid {
 	display: grid;
-	grid-template-columns: 1fr;
-	gap: var(--spacing-md);
-	margin-top: var(--spacing-md);
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 28px;
+	margin-top: var(--spacing-lg);
 }
-@media (min-width: 760px) {
-	.two-col { grid-template-columns: 1fr 1fr; }
+.faq-grid .card h3 {
+	margin-bottom: 10px;
+	font-family: 'Rajdhani', sans-serif;
+	font-weight: 600;
+	font-size: 1.2rem;
 }
+.faq-grid .card p {
+	color: var(--subtext-color);
+	font-size: 0.95rem;
+	line-height: 1.5;
+}
+
+/* ==========================================================
+   FAQ ACCORDION
+========================================================== */
+.faq-list {
+	margin-top: var(--spacing-lg);
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+}
+
+.faq-item {
+	background: rgba(255, 255, 255, var(--container-bg-alpha));
+	border: 1px solid #e2e2e2;
+	border-radius: 12px;
+	box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+	overflow: hidden;
+	transition: box-shadow 0.25s ease;
+}
+
+.faq-item:hover {
+	box-shadow: 0 6px 30px rgba(0,0,0,0.1);
+}
+
+.faq-question {
+	width: 100%;
+	text-align: left;
+	background: none;
+	border: none;
+	outline: none;
+	font-family: 'Rajdhani', sans-serif;
+	font-weight: 600;
+	font-size: 1.1rem;
+	color: var(--primary-color);
+	padding: var(--spacing-md);
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	transition: color 0.25s ease, background 0.25s ease;
+}
+
+.faq-question::after {
+	content: "+";
+	font-size: 1.4rem;
+	color: var(--primary-color);
+	transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.faq-item.active .faq-question::after {
+	transform: rotate(45deg);
+	color: var(--primary-dark);
+}
+
+.faq-question:hover {
+	background: rgba(184,137,53,0.05);
+	color: var(--primary-dark);
+}
+
+.faq-answer {
+	max-height: 0;
+	overflow: hidden;
+	padding: 0 var(--spacing-md);
+	transition: max-height 0.4s ease, padding 0.3s ease;
+	color: var(--subtext-color);
+	line-height: 1.5;
+	font-size: 0.95rem;
+}
+
+.faq-item.active .faq-answer {
+	max-height: 200px;
+	padding: var(--spacing-sm) var(--spacing-md) var(--spacing-md);
+}
+
 
 /* ==========================================================
    FOOTER
