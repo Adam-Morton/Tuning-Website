@@ -382,7 +382,7 @@ h2 {
   float: left;          /* Allow text to wrap around this image */
   width: 300px;         /* Adjust as needed */
   height: auto;
-  margin: 15px 20px -5px 0;  /* Right & bottom margins for breathing room */
+  margin: 15px 20px 5px 0;  /* Right & bottom margins for breathing room */
   border-radius: 12px;
   object-fit: cover;
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
